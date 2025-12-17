@@ -9,9 +9,9 @@ A serverless security system that tracks client behavior across requests to assi
 
 ## How it works:
 1. The Worker analyzes every incoming request on this link: `https://reputation-engine.ryan-benson-lab.workers.dev`
-2. It assigns points for suspicious behavior; some actions have different points given.
-3. It remembers score from previous sessions, and retrieves the IP's history from KV if suspicious action happend again, and adds the new points.
-4. If user user made too much suspicious actions and hitted 50, the user is getting blocked.
+2. It assigns weighted risk points for suspicious behavior.
+3. It retrieves the IP's history from KV and adds new points to the existing score if the user continues a suspicious activity.
+4. If the cumulative risk score hits the threshold of 50, the user is automatically blocked.
 
 ## Live Demo
 [https://reputation-engine.ryan-benson-lab.workers.dev]
