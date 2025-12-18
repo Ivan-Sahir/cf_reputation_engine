@@ -1,7 +1,6 @@
 export default {
   async fetch(request, env, ctx) {
     // 1. IDENTIFY THE CLIENT
-    // If testing in browser, IP might be hidden, so we fallback to a test IP
     const clientIP = request.headers.get("CF-Connecting-IP") || "127.0.0.1";
     const userAgent = request.headers.get("User-Agent") || "";
     const method = request.method;
@@ -10,8 +9,6 @@ export default {
     // 2. INITIALIZE SCORE (Start at 0)
     let currentScore = 0;
     let riskReason = [];
-
-    // --- SIGNAL DETECTION LOGIC ---
 
     // Signal A: Missing or Suspicious User-Agent (+20 points)
     // "curl" is often used by bots/scrapers
