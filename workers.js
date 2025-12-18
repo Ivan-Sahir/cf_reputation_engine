@@ -61,8 +61,6 @@ export default {
     }
 
     // 7. PASS TRAFFIC (Simulation)
-    // In a real app, this would fetch the origin website. 
-    // For this demo, we return a success message so you can see the logic working.
     return new Response(`ALLOWED.\n\nYour IP: ${clientIP}\nCurrent Request Risk: ${currentScore}\nTotal Reputation Score: ${totalRisk}\nStatus: Clean`, {
       status: 200,
       headers: { "X-Reputation-Score": totalRisk.toString() }
