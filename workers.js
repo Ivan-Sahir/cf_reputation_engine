@@ -10,6 +10,12 @@ export default {
     const ua = request.headers.get("User-Agent") || "";
     if (ua.includes("curl") || ua.length < 5) newPoints += 20;
 
+    const method = request.method;
+    if (method !== "GET" && method !== "POST") {
+      newPoints += 20;
+    }
+
+
     const cookies = request.headers.get("Cookie");
     if (!cookies) {
         newPoints += 15; 
