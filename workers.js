@@ -42,7 +42,7 @@ export default {
     }
 
     if (!cookies) {
-      response.headers.set("Set-Cookie", "verified=true;");
+      response.headers.set("Set-Cookie", "verified=true; Path=/; HttpOnly");
     }
     
     return response;
